@@ -25,7 +25,6 @@ public class Prometheus {
 
     @GetMapping
     public void test(HttpServletResponse httpExchange){
-        log.info("test");
         String response = prometheusMeterRegistry.scrape();
         httpExchange.setStatus(HttpServletResponse.SC_OK);
         try (OutputStream os = httpExchange.getOutputStream()) {
